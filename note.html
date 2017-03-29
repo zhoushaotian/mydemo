@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+ <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lemonada|Ranga|Roboto+Slab" rel="stylesheet">
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+body{
+  background-color:rgb(0,200,100);
+  font-weight:400;
+
+}
+.box{
+  position:relative;
+  border:5px solid white;
+  height:auto;
+  margin:100px;
+  background-color:white;
+  padding:50px 50px 50px 50px;
+  
+}
+  .quote{
+    text-align:center;
+    height:auto;
+    clear:both;
+    font-weight:500;
+    font-size:1.75em;
+	font-family:'Lemonada', cursive;
+   }
+  .author{
+	position:relative;
+    height:auto;
+    clear:both;
+    padding-top:100px;
+    font-size:3em; 
+    text-align:right;
+	font-family:'Ranga', cursive;
+	
+  }
+  .buttons{
+	  text-align:center;
+	  margin:50px;
+	  }
+
+</style>
+<script>
+	var currentQuote='';
+	var currentAuther='';
+	function inIframe () { try { return window.self !== window.top; } catch (e) { return true; } }
+	function getQuote(){
+		$.ajax({headers:{      "X-Mashape-Key": "OivH71yd3tmshl9YKzFH7BTzBVRQp1RaKLajsnafgL2aPsfP9V",
+      Accept: "application/json",
+      "Content-Type": "application/x-www-form-urlencoded"},url:"https://andruxnet-random-famous-quotes.p.mashape.com/cat=",success: function(response){
+		   var r=JSON.parse(response);
+		  currentQuote=r.quote;
+		  currentAuther=r.author;
+		  $('#text').html(currentQuote);
+		  $('#author').html(currentAuther);
+		  }
+		});
+	}
+	
+	function weibo(){
+		window.open('http://service.weibo.com/share/share.php?appkey=&title='+encodeURIComponent('"'+currentQuote+'"'+currentAuther)+'&url=&pic=&searchPic=false&style=simple');
+		
+	}
+	$(document).ready(function(e) {
+        getQuote();
+		$('#new-quote').on('click',getQuote);
+		$('#weibo').on('click',weibo);
+		
+    });
+	
+</script>
+</head>
+
+<body>
+	<div class="box">
+      <div class="quote">
+      <i class="glyphicon glyphicon-pencil"> </i><span id="text"></span>
+      </div>
+      <div class="author">
+       -<span id="author"></span>
+      </div>
+      <div class="buttons">
+        <button class="" id="new-quote">New quote</button>
+        <button class="" id="weibo">Weibo</button>
+        </div>
+       </div>
+        
+        
+</body>
+</html>

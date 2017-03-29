@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Calculator</title>
+<style>
+.bak{
+	background-color:#9C0;
+	
+	width:100%;
+	
+}
+.cal{
+	position:absolute;
+	background-color:#9C6;
+	text-align:center;
+	margin:auto;
+	top:0px; left: 0; right: 0; bottom: 0;
+	width:300px;
+	height:400px;
+	padding:5px;
+	border-radius:10px;
+}
+h1{
+	color:#9FC;
+	margin:3px;
+	font-family:'Baloo Bhaina', cursive;
+	
+}
+.text{
+	background-color:#9CC;
+	border:none;
+	width:280px;
+	height:25px;
+	margin:0px auto 5px auto;
+}
+.buttons{
+	width:280px;
+	height:300px;
+	margin:15px;
+}
+button{
+	float:left;
+	width:60px;
+	height:40px;
+	margin:5px 3px 5px 3px;
+	background-color:#993;
+	cursor:pointer;
+	border:none;
+	
+}
+</style>
+<script>
+	var ans="";
+	var cal="";
+	var flag=false;
+	$(document).ready(function() {
+        $("button").on('click',function(){
+					var text=$(this).val();
+					if(text==='cd'){
+						$('#about').html('My Email:245406994@qq.com')
+					}
+						
+					if(text==parseInt(text,10)||text==='+'||text==='-'||text==='*'||text==='/'||text==='%'||text==='.'){
+							if(!flag){//计算未完成
+							cal+=text;
+							$("input").val(cal);
+							}
+							else{//计算已经完成了,此时再按键会清空计算式
+							cal="";
+							cal+=text;
+							$("input").val(cal);
+							flag=false;
+							
+							}
+						}else if(text==='AC'){
+							flag=true;
+							cal="";
+							ans="";
+						}else if(text==='CE'){
+							if(!flag){//计算未完成
+							cal=cal.slice(0,-1);
+							$("input").val(cal);
+							}
+							else{//计算完成时候再按CE会取消刚刚的计算结果转换到未完成计算的状态
+							$("input").val(cal);
+							ans="";
+							flag=false;
+							}
+						}else if(text==='='){
+							ans=eval(cal);
+							flag=true;
+						}
+					if(flag){//计算完成
+						$("input").val(ans);
+						}
+					
+			});
+    });
+</script>
+</head>
+
+<body class="bak">
+	<div class="cal">
+    	
+        	<h1>Calculator By Tian</h1>
+        	<input type="typebox" class="text" readonly/>
+        <div class="buttons">
+        	<button type="button" class="button" value="AC">AC</button>
+            <button type="button" class="button" value="CE">CE</button>
+            <button type="button" class="button" value="%">%</button>
+            <button type="button" class="button" value="*">*</button>
+            <button type="button" class="button" value="1">1</button>
+            <button type="button" class="button" value="2">2</button>
+            <button type="button" class="button" value="3">3</button>
+            <button type="button" class="button" value="/">/</button>
+            <button type="button" class="button" value="4">4</button>
+            <button type="button" class="button" value="5">5</button>
+            <button type="button" class="button" value="6">6</button>
+            <button type="button" class="button" value="+">+</button>
+            <button type="button" class="button" value="7">7</button>
+            <button type="button" class="button" value="8">8</button>
+            <button type="button" class="button" value="9">9</button>
+            <button type="button" class="button" value="-">-</button>
+            <button type="button" class="button" value=".">.</button>
+            <button type="button" class="button" value="0">0</button>
+            <button type="button" class="button" value="cd">About</button>
+            <button type="button" class="button" value="=">=</button>
+            <p id="about"></p>
+        </div>
+    </div>
+</body>
+</html>

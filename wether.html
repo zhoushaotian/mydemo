@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Weather</title>
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
+    <!-- Custom styles for this template -->
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One|Slabo+27px" rel="stylesheet"></link>
+<link href="we.css" rel="stylesheet" type="text/css"></link>  
+<!--font-family: 'Slabo 27px', serif;
+font-family: 'Rubik Mono One', sans-serif;-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>The Local weather</title>
+<script>
+
+	$(document).ready(function(e) {
+        $('#go').on('click',function(){
+			var city=$('#city').val()||'重庆';
+			var citycode=urlencode(city);
+			url='http://v.juhe.cn/weather/index?format=2&cityname='+city+'&key=8923d3bcd937e30674ac6ddc45676ce6';
+			$.ajax({url:url,
+			dataType:"jsonp",
+			type:"get",
+			data:{location:city},
+			success:function(data){
+					var sk=data.result.sk;
+					var today=data.result.today;
+					var future=data.result.future;
+					var re=data.result;
+					$('#tem').html(sk.temp+'℃');
+					$('#sky').html(today.weather);
+					$('#comfort').html(sk.time);
+					$('#future').html('明天：'+future[0].week+'  温度:'+future[0].temperature+'  天气:'+future[0].weather+'  风速:'+future[0].wind);}   
+					});
+		});
+		
+	});
+	function urlencode(str){
+		str=(str+'').toString();
+		return encodeURIComponent(str).replace(/!/g,'%21').replace(/'/g, '%27').replace(/\(/g, '%28').   
+    replace(/\)/g, '%29').replace(/\*/g, '%2A').replace(/%20/g, '+');   
+		}
+	
+</script>
+</head>
+
+<body>
+<div class="page">
+	<div class="container-fluid">
+	<div class="title">
+    	<p>The weather page By Tian</p>
+    </div>
+    <div class="tem">
+    	<i class="text-left text-info glyphicon glyphicon-fire">Current temperature:</i><span id="tem"></span>
+    </div>
+    <div class="data">
+	    <div class="row">
+            <div class="text-center">
+    			<div class=" text-center input-group">
+      <input id="city" type="text" class="text-center form-control" placeholder="Input city">
+      <span class="input-group-btn">
+        <button id='go' class="btn btn-default" type="button">Go!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+        	<p class="p2 text-left"><i class="glyphicon glyphicon-grain">Current Sky:</i><span id="sky"></span></p>
+        	<p class="p3 text-left"><i class="glyphicon glyphicon-heart">Update Time:</i><span id="comfort"></span>
+             </p>
+             <p class="p3 text-left"> <i class="glyphicon glyphicon-send">Future：</i><span id="future"></span></p>
+
+  
+    </div>
+    </div>
+</div>
+</body>
+</html>

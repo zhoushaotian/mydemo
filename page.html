@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Fixed Top Navbar Example for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="navbar-fixed-top.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+	.intro-header {
+    height: 855px;  
+    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 50px;
+    text-align: center;
+    background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1488527723318&di=46d3f72c58ac47acb5ca4087ba74cb3e&imgtype=0&src=http%3A%2F%2Fdesk.fd.zol-img.com.cn%2Ft_s960x600c5%2Fg5%2FM00%2F02%2F09%2FChMkJ1bKzbeIcHBMABFFN55qdUYAALJDgDDFeAAEUVP557.jpg') no-repeat center center fixed;
+	background-size: cover;
+    height: 855px;
+	}
+	.bg-overlay {
+  background:rgba(0,0,0, 0);
+  height: 855px;
+}
+	.intro-divider {
+    width:400px;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+	}
+	html {
+    width: 100%;
+    height: 100%;
+    
+}
+	h1{
+		font-size:80px;
+		font-family:Verdana, Geneva, sans-serif;
+		color:#003;
+	}
+	h3{
+		font-size:40px;
+		font-family:Verdana, Geneva, sans-serif;
+		color:#FFF;
+		text-align:center;
+	
+	}
+	.content-section-a {
+    padding: 50px 0;
+    background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1488701910074&di=d6b0d415e379b657b0711a4c03d62276&imgtype=0&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F17%2F58%2F13%2F28858PICkJd_1024.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 855px;
+}
+	.content-section-b{
+	padding: 50px 0;
+    background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1488703395541&di=04a1296e995f95fd88c8c0538c17c40b&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2Fqk%2Fback_origin_pic%2F00%2F03%2F37%2F6421979db68be3c51a689f2aed2d00b1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 855px;
+		}
+	.content-section-c{
+	padding: 50px 0 0 0;
+    background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1488706479105&di=1fbec8fae9640d1313064a7eff5fde59&imgtype=0&src=http%3A%2F%2Fdl.bizhi.sogou.com%2Fimages%2F2012%2F01%2F18%2F104501.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 1000px;
+		}
+	</style>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Tian</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#stories">Stories</a></li>
+            <li><a href="#contact">Contact</a></li>
+
+          </ul>
+          
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+	<a name="home"></a>
+   <div class="intro-header">
+    	<div class="bg-overlay">
+        	<div class="container">
+                    	
+            <h1 class="">Web Design Studio By Tian</h1>
+            <h3 class="">For a progamer Dream</h3>
+            <hr class="intro-divider">
+            			<ul class="list-inline">
+                        	<li><a href="https://github.com" class="btn btn-default"><i class="glyphicon glyphicon-asterisk"></i><span class="network-name">Github</span></a>
+                            </li>
+                            <li>
+                            <a href="http://weibo.com/" class="btn btn-default"><i class="glyphicon glyphicon-user"></i><span class="network-name">Weibo</span></a>
+                            </li>
+                            <li>
+                            <a href="http://codepen.io" class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i><span class="network-name">codepen</span></a>
+                            </li>
+                            <li>
+                            <a href="http://www.freecodecamp.cn" class="btn btn-default"><i class="glyphicon glyphicon-road"></i><span class="network-name">freecodecamp</span></a>
+                            </li>
+                            
+                        </ul>
+                 </div>
+			</div>
+        </div>
+   </div>
+   
+     <a name="about"></a>
+     	<div class="content-section-a">
+        	<div class="bg-overlay">
+            	<div class="container>
+                 	<div class="clearfix">
+                    <h3>information About me </h3>
+                	 <p class="text-success text-center">
+                    		一名来自重庆邮电大学计算机科学与技术学院的学生。喜爱编程，现在正在努力学习中。
+                       </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+     <a name="stories"></a>
+     <div class="content-section-b">
+     	<div class="bg-overlay">
+        	<div class="container">
+            	<div class="clearfix">
+                	<h3>Here are my recent work</h3>    
+                    <div class="row">                        
+                            <div class="col-md-4 col-sm-6 ">
+                    <a href="http://codepen.io/zhoushaotian/pen/zZqEmM" class="" target="" data-toggle="">
+
+                                <i class="glyphicon glyphicon-asterisk"></i>
+ 
+                        <img src="http://a2.qpic.cn/psb?/V13kiKhx0tJdtC/xHcDJywAiauQKGScu4dtXCP2KL5rNDtNnMoC9oj4s2s!/b/dLIAAAAAAAAA&bo=VQVjAgAAAAADBxM!&rf=viewer_4" class="img-responsive" alt="">
+                    </a>
+                    
+                        <h4>A simple page</h4>
+                        <p id="small-text" class="text-muted">HTML and CSS</p>
+                        </div>
+                      </div>
+
+        	</div>
+        </div>
+     </div>
+     </div>
+     <a name="contact"></a>
+ 	<div class="content-section-c">
+    	<div class="bg-overlay">
+        	<div class="container">
+            	<div class="clearfix text-center">
+                	<h3>You can find me by these</h3>
+                    	<h4><i class="glyphicon glyphicon-user"></i>QQ:245406994<h4>
+                        <h4> <i class="glyphicon glyphicon-envelope"></i>mail:245406994@qq.com</h4>
+                        <h4><i class="glyphicon glyphicon-signal"></i>tel:17784236103</h4>
+                        
+                </div>
+             </div>
+         </div>
+     </div>
+
+     <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Griffy" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>番茄钟</title>
+<style>
+body{
+	background-color: #666;
+	text-align: center;
+	font-weight: normal;
+}
+h1{
+	margin: 35px auto;
+	font-family: 'Griffy', cursive;
+	color: #FFF;
+}
+.set{
+	color: #FFF;	
+	}
+	
+.tip{
+	margin: auto;
+	}
+bbutton+{
+}
+sbutton-{
+}
+.buttonset{
+	background-color: #666;
+	border: none;
+	cursor: pointer;
+	width: 20px;
+	margin: 10px;
+	height: auto;
+	outline: none;
+}
+.clock{
+	position: relative;
+	border-color: #CF0;
+	border-style: solid;
+	border-radius: 1000px;
+	width: 300px;
+	margin: auto;
+	;
+	height: 300px;
+	background-color: #666;
+	outline: none;
+}
+.clockbutton{
+	border-color: #CF3;
+	width: 295px;
+	height: 295px;
+	border-radius: 200px;
+	cursor: pointer;
+	background-color: #666;
+	border-width: 0px;
+	padding: 0px;
+	margin: 3px auto;
+	outline: none;
+}
+.fullcolor{
+	margin: -20px;
+	float: right;
+	background-color: #F00;
+	clear: both;
+}
+.typetime{
+	background-color: #666;
+	float: left;
+	margin: 50px;
+}
+.timetip{
+	color: #FFF;
+	font-size: xx-large;
+	font-weight: bold;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	}
+</style>
+<script>
+	var flag=false;   //番茄钟开始标志
+	var timeflag=1;   //时间标志如果为1则为session时间为2则为breaktime3为运行结束
+	var btime=1;   //breaktime
+	var stime=1;	//sessiontime 
+	var btimes=btime*60;     //秒数计时器
+	var stimes=stime*60;
+	var loop;
+	//var bheight=300-300/(btime*60);
+	//var sheight=300-300/(stime*60);
+	function drawb(){//绘画函数每1s调用一次	
+		var canvas=document.getElementById("can");
+		if(btimes===0){
+			flag=false;
+			$('#timeflag').html("姜乃绮");
+			$('#time').html("时间到啦！");
+			return clearInterval(loop);
+		}
+		btimes--;
+		$("#time").html(btimes%60<10?Math.floor(btimes/60)+":"+"0"+btimes%60:Math.floor(btimes/60)+":"+btimes%60);			//秒数计时器减一;
+		var height=300/(btime*60)*btimes;
+		ctx=canvas.getContext('2d');
+		ctx.clearRect(0,0,300,300);   //先清除之前的内容然后重绘		
+		ctx.beginPath();
+		ctx.arc(148,148,145,0,2*Math.PI);
+		ctx.fillStyle="rgb(245,0,10)";
+		ctx.fill();
+		ctx.clearRect(0,0,300,height);	//清除不需要的部分
+			
+	}
+	function draws(){//绘画函数每1s调用一次	
+		var canvas=document.getElementById("can");
+		if(stimes===0){
+			timeflag=2;
+			dclear();
+			clearInterval(loop); 
+			$("#timeflag").html("BreakTime");
+			return loop=setInterval(drawb,1000);;
+			
+		}
+		stimes--;				//秒数计时器减一;
+		$("#time").html(stimes%60<10?Math.floor(stimes/60)+":"+"0"+stimes%60:Math.floor(stimes/60)+":"+stimes%60);
+		var height=300/(stime*60)*stimes;
+		ctx=canvas.getContext('2d');
+		ctx.clearRect(0,0,300,300);   //先清除之前的内容然后重绘		
+		ctx.beginPath();
+		ctx.arc(148,148,145,0,2*Math.PI);
+		ctx.fillStyle="rgb(0,245,10)";
+		ctx.fill();
+		ctx.clearRect(0,0,300,height);	//清除不需要的部分
+			
+	}
+	
+	function dclear(){
+		var canvas=document.getElementById("can");
+		var ctx=canvas.getContext("2d");
+		ctx.clearRect(0,0,300,300);	
+		}
+	$('document').ready(function(e) {
+       		//设置breaktime和sessiontime的初始值
+		$("#bktime").text(btime+'min');
+		$("#sstime").text(stime+'min');
+			//页面初始化 
+		$('#timeflag').html('SessionTime:');
+			//绑定click事件
+		$("#clock").on('click',function(){
+				flag=!flag;  //点击一次就改变了标志
+				//true表示番茄钟开始运行
+				//判断当前的时间类型并初始化				
+				if(flag&&timeflag===1){
+					$('#timeflag').html('SessionTime');
+					loop=setInterval(draws,1000);	
+				}
+				if(flag&&timeflag===2){
+					loop=setInterval(drawb,1000);
+				}
+				if(!flag){
+					clearInterval(loop); 
+				}
+			});
+		$("#bbuttonup").on('click',function(){
+				if(!flag){//每次点一下加号breaktime就加1
+				timeflag=1;
+				btime++;
+				$('#timeflag').html('BreakTime');
+				$('#bktime').html(btime+'min');
+				$('#time').html(btime+':'+'00');
+				btimes=btime*60;
+				stimes=stime*60;
+				dclear();
+				}
+			});
+		$("#bbuttondown").on('click',function(){
+				if(!flag){
+				if(btime>=2){
+						timeflag=1;
+						btime--;
+						$("#bktime").html(btime+'min');
+						$('#timeflag').html('BreakTime');
+						$('#time').html(btime+':'+'00');
+						btimes=btime*60;
+						stimes=stime*60;
+						dclear();
+
+					}
+				}
+			});
+		$("#sbuttonup").on('click',function(){
+				if(!flag){
+				timeflag=1;
+				stime++;
+				$('#sstime').html(stime+'min');
+				$('#timeflag').html('SessionTime');
+				$('#time').html(stime+':'+'00');
+				stimes=stime*60;
+				btimes=btime*60;
+				dclear();
+				}
+		});
+		$("#sbuttondown").on('click',function(){
+				if(!flag){
+				if(stime>=2){
+						timeflag=1;
+						stime--;
+						$('#sstime').html(stime+'min');
+						$('#timeflag').html('SessionTime');
+						$('#time').html(stime+':'+'00');
+						stimes=stime*60;
+						btimes=btime*60;
+						dclear();	
+				}
+				}
+		});
+    }); 
+	
+</script>
+</head>
+
+<body>
+<div class="back">
+<h1>Tomato clock By Tian</h1>
+     <div class="set">
+    <span class="tip">Break Time</span>
+    <span class="tip">Session Time</span>
+    	<div class="buttons">
+    		<button id="bbuttondown" type="button" class="buttonset">-</button>
+           <span class="tip" id="bktime"></span>  
+            <button id="bbuttonup"type="button" class="buttonset">+</button>
+ 
+         
+          <button id="sbuttondown"type="button" class="buttonset">-</button>
+         <span class="tip" id="sstime"></span>
+          <button id="sbuttonup" type="button" class="buttonset">+</button>
+    	</div>
+    </div>
+    <div class="clock">
+ 
+    
+   	  <button type="button" id="clock" class="clockbutton"><canvas id="can" height="300px" width="300px"></canvas></button>
+        <div>
+        	<span id="timeflag" class="timetip">timeflag</span>
+            <span id="time" class="timetip">time</span>
+        </div>
+       
+  <!--    <div id="full" class="fullcolor"> 
+		
+          <span class="typetime" id="typetime">Break</span>
+          <br>
+
+        <span class="typetime" id="time">17:05</span>
+   		
+  	</div>
+    -->
+ </div>
+
+    
+
+</body>
+</html>
