@@ -1,0 +1,182 @@
+     body,
+     div,
+     h1,
+     h2,
+     h5,
+     ul,
+     ol,
+     li,
+     p {
+         margin: 0px;
+         padding: 0px;
+     }
+     
+     h2,
+     h5 {
+         margin-top: 10px;
+         color: #666a5b;
+     }
+     
+     p {
+         margin-top: 10px;
+         line-height: 150%;
+         text-indent: 2em;
+     }
+     
+     body {
+         background-color: #dedede;
+         width: 100%;
+     }
+     
+     .header {
+         width: 100%;
+         height: 54px;
+         background-color: #333333;
+     }
+     
+     .header #logo {
+         width: 200px;
+         height: 54px;
+         display: block;
+         float: left;
+     }
+     
+     .header #logo img {
+         width: 200px;
+         height: 54px;
+         display: block;
+         border: none;
+     }
+     
+     .header #nav {
+         width: 780px;
+         height: 54px;
+         float: right;
+         text-align: center;
+         color: white;
+         list-style: none;
+     }
+     
+     .header #nav li {
+         float: right;
+     }
+     
+     .header #nav li a {
+         display: block;
+         float: right;
+         text-decoration-line: none;
+         height: 54px;
+         width: 100px;
+         font-size: 12px;
+         line-height: 54px;
+     }
+     
+     .article {
+         margin: 20px;
+         padding: 40px 20px;
+         background-color: white;
+         border: 2px solid #cdcdcd;
+     }
+     
+     .article img {
+         margin-top: 20px;
+     }
+     
+     .article a {
+         color: blue;
+     }
+     
+     .article ui {
+         list-style: none;
+     }
+     
+     .imgbox p {
+         text-indent: 0;
+     }
+     
+     .imgbox {
+         width: 200px;
+         height: 200px;
+         margin-top: 20px;
+         border: 2px solid #dedede;
+         text-align: center;
+     }
+     
+     .imgbox img {
+         display: block;
+         width: 150px;
+         height: 140px;
+         margin: 0px auto;
+         margin-top: 10px;
+     }
+     
+     table {
+         width: 100%;
+         text-align: left;
+     }
+     
+     td {
+         border-top: 1px solid #cccccc;
+         border-right: 1px solid #cccccc;
+         border-left: 1px solid #cccccc;
+     }
+     
+     th {
+         color: white;
+         background-color: #333333;
+         border-left: 1px solid #cccccc;
+     }
+     
+     #lastrow {
+         background-color: #cccccc;
+         border: 0px;
+     }
+     
+     #information p {
+         text-indent: 0;
+         height: 24px;
+     }
+     
+     .content-left {
+         margin-left: 25%;
+         text-align: right;
+         float: left;
+     }
+     
+     .content-right {
+         margin-left: 10px;
+         text-align: left;
+         display: inline-block;
+     }
+     
+     .info {
+         color: #cccccc;
+         font-size: 12px;
+     }
+     
+     textarea {
+         height: 100px;
+         width: 750px;
+     }
+     
+     #button {
+         width: 100%;
+         height: 40px;
+         background-color: #3355d0;
+         color: white;
+         font-size: 20px;
+         border: 0px none;
+         border-radius: 8px;
+     }
+     
+     .footer {
+         width: 100%;
+         height: 50px;
+         background-color: black;
+         color: white;
+         text-align: center;
+     }
+     
+     span {
+         line-height: 50px;
+     }
