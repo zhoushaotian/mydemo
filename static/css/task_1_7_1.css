@@ -378,3 +378,179 @@ body {
     border-color: #e74f4d;
     margin-top: 50px;
 }
+
+#join {
+    width: 1280px;
+    height: 807px;
+    position: relative;
+}
+
+#join>div {
+    width: 1000px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#join>div>p {
+    text-align: center;
+}
+
+#join>div p:nth-child(1) {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#join>div>p:nth-child(2) {
+    margin-top: 20px;
+    margin-bottom: 100px;
+    padding: 0px 200px;
+    font-size: 15px;
+    color: #d7d7d7;
+}
+
+#rule {
+    width: 300px;
+    float: left;
+    margin-right: 40px;
+}
+
+#rule h2 {
+    font-size: 20px;
+}
+
+#rule p {
+    font-size: 12px;
+    color: #d7d7d7;
+    margin-top: 20px;
+}
+
+.more {
+    width: 46px;
+    height: 7px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    background: url('../pic/task/task_1_7_1/more.png');
+    background-repeat: no-repeat;
+    background-size: 46px 7px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    left: 250px;
+}
+
+#join form {
+    width: 660px;
+    height: 386px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.person {
+    width: 310px;
+    height: 41px;
+    margin: 5px 5px;
+    margin-bottom: 20px;
+    background-color: #d7d7d7;
+    text-indent: 2em;
+    border: none;
+}
+
+#join form textarea {
+    width: 630px;
+    height: 121px;
+    margin: 5px 5px;
+    background-color: #d7d7d7;
+    text-indent: 2em;
+    border: none;
+}
+
+.submit {
+    width: 637px;
+    height: 41px;
+    margin: 20px 5px;
+    background-color: #d7d7d7;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#connect {
+    width: 1280px;
+    height: 358px;
+    background-color: #32363e;
+    position: relative;
+}
+
+#connect>div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#connect>div>h2 {
+    color: white;
+    font-weight: normal;
+}
+
+#connect>div>p {
+    color: white;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.mail {
+    width: 431px;
+    height: 41px;
+    border: none;
+    text-indent: 2em;
+    background-color: white;
+}
+
+.mailsub {
+    width: 81px;
+    height: 41px;
+    background-color: #6f7278;
+    border: none;
+    color: white;
+    vertical-align: top;
+    padding: 0px 20px;
+    outline: none;
+    text-align-last: justify;
+}
+
+#footer {
+    width: 1280px;
+    height: 55px;
+    background-color: #2f2f38;
+    color: white;
+    text-align: left;
+    position: relative;
+}
+
+#footer>span {
+    text-align: center;
+    font-size: 12px;
+    line-height: 55px;
+    margin-left: 100px;
+}
+
+#footer>div {
+    display: inline-block;
+    position: absolute;
+    right: 50px;
+    height: 55px;
+}
+
+#footer>div>a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    height: 100%;
+    line-height: 55px;
+}
